@@ -46,7 +46,12 @@ def solarize_test():
 def solarize_image():
     """
     You will design the parameter request here to work injunction with the client side.
-    This endpoint should perform the logic to solarize an image and return to the client.
+    
+    This endpoint should:
+      - Query for an image from Unsplash.
+      - Perform the logic to solarize an image.
+      - Return the final result to the client.
+
     See above example in solarize_test() to see the logic for handling that process.
     """
 
