@@ -2,22 +2,19 @@ from flask import Flask, send_file
 from PIL import Image
 
 import io
-import requests
-import numpy as np
 import statistics
-
-from utils import download_and_save_file
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def hello_world():
-    return 'Hello, World!'
+    return "Hello, World!"
 
 
-@app.route('/solarize/test')
+@app.route("/solarize/test")
 def solarize_test():
-    img = Image.open('test.jpg')
+    img = Image.open("test.jpg")
 
     # Get pixels from our test image
     pixels = list(img.getdata())
@@ -36,13 +33,14 @@ def solarize_test():
 
     # Create file-object in memory and write to it
     file_object = io.BytesIO()
-    newImg.save(file_object, 'png')
+    newImg.save(file_object, "png")
     file_object.seek(0)
 
-    return send_file(file_object, mimetype='image/png')
+    # Sends back image data
+    return send_file(file_object, mimetype="image/png")
 
 
-@app.route('/solarize')
+@app.route("/solarize")
 def solarize_image():
     """
     You will design the parameter request here to work injunction with the client side.
@@ -55,5 +53,5 @@ def solarize_image():
     See above example in solarize_test() to see the logic for handling that process.
     """
 
-    return ''
+    return ""
 
