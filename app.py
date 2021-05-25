@@ -1,10 +1,12 @@
 from flask import Flask, send_file
+from flask_cors import CORS
 from PIL import Image
 
 import io
 import statistics
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/")
